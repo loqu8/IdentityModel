@@ -30,16 +30,16 @@ namespace System.Net.Http
     {
         public static void SetBasicAuthentication(this HttpClient client, string userName, string password)
         {
-			client.DefaultRequestHeaders.Authorization = new BasicAuthentication(userName, password).HeaderValue;
+            client.DefaultRequestHeaders.Authorization = new BasicAuthentication(userName, password).HeaderValue;
         }
 
         public static void SetToken(this HttpClient client, string scheme, string token)
         {
             client.DefaultRequestHeaders.Authorization = 
 #if __UNIVERSAL__
-				new HttpCredentialsHeaderValue(scheme, token);
+                new HttpCredentialsHeaderValue(scheme, token);
 #else
-				new AuthenticationHeaderValue(scheme, token);
+                new AuthenticationHeaderValue(scheme, token);
 #endif
         }
 
