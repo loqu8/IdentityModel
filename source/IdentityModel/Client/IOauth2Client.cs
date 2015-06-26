@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel
+namespace IdentityModel.Client
 {
-    public interface IOauth2Client
+    public interface IOAuth2Client
     {
         string CreateCodeFlowUrl(
             string clientId, 

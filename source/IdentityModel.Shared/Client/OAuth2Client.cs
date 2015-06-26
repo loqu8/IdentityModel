@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace IdentityModel.Client
 {
-    public class OAuth2Client : IOauth2Client
+    public class OAuth2Client : IOAuth2Client
     {
         protected HttpClient _client;
         protected ClientAuthenticationStyle _authenticationStyle;

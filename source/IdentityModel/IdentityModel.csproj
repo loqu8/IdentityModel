@@ -36,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IOauth2Client.cs" />
-    <Compile Include="ITokenResponse.cs" />
+    <Compile Include="Client\IOauth2Client.cs" />
+    <Compile Include="Client\ITokenResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
