@@ -24,7 +24,7 @@ using System.Net;
 
 namespace IdentityModel.Client
 {
-    public class TokenResponse
+    public class TokenResponse : ITokenResponse
     {
         public string Raw { get; protected set; }
         public JObject Json { get; protected set; }
@@ -54,11 +54,19 @@ namespace IdentityModel.Client
             }
         }
 
+#if __UNIVERSAL__
+        public System.Net.HttpStatusCode HttpErrorStatusCode
+#else
         public HttpStatusCode HttpErrorStatusCode
+#endif
         {
             get
             {
+#if __UNIVERSAL__
+                return (System.Net.HttpStatusCode)_httpErrorstatusCode;
+#else
                 return _httpErrorstatusCode;
+#endif
             }
         }
 

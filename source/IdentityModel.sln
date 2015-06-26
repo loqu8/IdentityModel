@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FE07BA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Universal", "IdentityModel.Universal\IdentityModel.Universal.csproj", "{A61E356A-E9E7-48A9-AD64-3C6DE0EDE233}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel", "IdentityModel\IdentityModel.csproj", "{AFFA9063-00B9-4C63-AB08-646FB519409E}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		IdentityModel.Shared\IdentityModel.Shared.projitems*{f833ac22-329e-40f3-8197-14d2f1411c07}*SharedItemsImports = 4
@@ -48,6 +50,10 @@ Global
 		{A61E356A-E9E7-48A9-AD64-3C6DE0EDE233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A61E356A-E9E7-48A9-AD64-3C6DE0EDE233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A61E356A-E9E7-48A9-AD64-3C6DE0EDE233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFFA9063-00B9-4C63-AB08-646FB519409E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFA9063-00B9-4C63-AB08-646FB519409E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFA9063-00B9-4C63-AB08-646FB519409E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFA9063-00B9-4C63-AB08-646FB519409E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

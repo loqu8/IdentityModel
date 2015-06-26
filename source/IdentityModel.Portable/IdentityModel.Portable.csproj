@@ -46,6 +46,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityModel\IdentityModel.csproj">
+      <Project>{affa9063-00b9-4c63-ab08-646fb519409e}</Project>
+      <Name>IdentityModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\IdentityModel.Shared\IdentityModel.Shared.projitems" Label="Shared" Condition="Exists('..\IdentityModel.Shared\IdentityModel.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 
 namespace IdentityModel.Client
 {
-    public class OAuth2Client
+    public class OAuth2Client : IOauth2Client
     {
         protected HttpClient _client;
         protected ClientAuthenticationStyle _authenticationStyle;
@@ -227,7 +227,7 @@ namespace IdentityModel.Client
             return string.Format("{0}?{1}", endpoint.AbsoluteUri, qs);
         }
 
-        public Task<TokenResponse> RequestResourceOwnerPasswordAsync(string userName, string password, string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestResourceOwnerPasswordAsync(string userName, string password, string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fields = new Dictionary<string, string>
             {
@@ -244,7 +244,7 @@ namespace IdentityModel.Client
             return RequestAsync(Merge(fields, additionalValues), cancellationToken);
         }
 
-        public Task<TokenResponse> RequestAuthorizationCodeAsync(string code, string redirectUri, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestAuthorizationCodeAsync(string code, string redirectUri, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fields = new Dictionary<string, string>
             {
@@ -256,7 +256,7 @@ namespace IdentityModel.Client
             return RequestAsync(Merge(fields, additionalValues), cancellationToken);
         }
 
-        public Task<TokenResponse> RequestRefreshTokenAsync(string refreshToken, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestRefreshTokenAsync(string refreshToken, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fields = new Dictionary<string, string>
             {
@@ -267,7 +267,7 @@ namespace IdentityModel.Client
             return RequestAsync(Merge(fields, additionalValues), cancellationToken);
         }
 
-        public Task<TokenResponse> RequestClientCredentialsAsync(string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestClientCredentialsAsync(string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fields = new Dictionary<string, string>
             {
@@ -282,7 +282,7 @@ namespace IdentityModel.Client
             return RequestAsync(Merge(fields, additionalValues), cancellationToken);
         }
 
-        public Task<TokenResponse> RequestCustomGrantAsync(string grantType, string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestCustomGrantAsync(string grantType, string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fields = new Dictionary<string, string>
             {
@@ -297,12 +297,12 @@ namespace IdentityModel.Client
             return RequestAsync(Merge(fields, additionalValues), cancellationToken);
         }
 
-        public Task<TokenResponse> RequestCustomAsync(Dictionary<string, string> values, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestCustomAsync(Dictionary<string, string> values, CancellationToken cancellationToken = default(CancellationToken))
         {
             return RequestAsync(Merge(values), cancellationToken);
         }
 
-        public Task<TokenResponse> RequestAssertionAsync(string assertionType, string assertion, string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITokenResponse> RequestAssertionAsync(string assertionType, string assertion, string scope = null, Dictionary<string, string> additionalValues = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fields = new Dictionary<string, string>
             {
@@ -318,7 +318,7 @@ namespace IdentityModel.Client
             return RequestAsync(Merge(fields, additionalValues), cancellationToken);
         }
 
-        public async Task<TokenResponse> RequestAsync(Dictionary<string, string> form, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ITokenResponse> RequestAsync(Dictionary<string, string> form, CancellationToken cancellationToken = default(CancellationToken))
         {
 #if __UNIVERSAL__
             var response = await _client.PostAsync(_address,
